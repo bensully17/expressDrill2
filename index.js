@@ -8,7 +8,7 @@ app.use(cors())
 
 let selectedId = (instructors, id) => {
     for (let i = 0; i < instructors.length; i++) {
-        if (instructors[i]["ID"] == id) {
+        if (instructors[i]["id"] == id) {
             return instructors[i]
         }
     }
