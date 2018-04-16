@@ -22,11 +22,14 @@ app.get('/', (req, res, next) => {
 app.get('/:id', (req, res, next) => {
     let instructorInfo = selectedId(instructors, req.params.id)
     if (instructorInfo == null) {
-        res.send('Error: Invalid ID')
+        res.status(404).json({
+            error: {
+                message: 'Not found'}
+        })
     }
     else {
-    res.json({data: instructorInfo})
+        res.json({data: instructorInfo})
     }
 })
 
-app.listen(port, () => {console.log(`listening on port ${port}`)})
+app.listen(port)
